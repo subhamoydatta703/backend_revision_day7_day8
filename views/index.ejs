@@ -10,15 +10,16 @@
    <h1>All Posts</h1>
 <div class="posts-list">
   <% posts.forEach(post => { %>
-    <a href="/posts/<%= post.id %>" class="post-link">
-      <div class="post-item">
-        <h2><%= post.username %></h2>
-        <a href="/posts/<%= post.id%>">See in detail</a>
-        <h3><%= post.content %></h3>
-      </div>
-    </a>
+    <div class="post-item">
+      <h2><%= post.username %></h2>
+      <h3><%= post.content %></h3>
+      <!-- Separate link outside outer <a> -->
+      <a href="/posts/<%= post.id %>" class="see-detail">See in detail →</a>
+    </div>
   <% }) %>
 </div>
+
 <a href="/posts/new" class="back-btn">+ Create New Post</a>
+
   </body>
 </html>
