@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POSTS</title>
+  </head>
+  <body>
+    <h1>ASK...</h1>
+    <% for(post of posts){ %>
+
+    <div>
+        <h3>
+            @<%= post.username %>
+        </h3>
+        <h4>
+            Post: <%= post.content %>
+        </h4>
+    </div>
+
+    <% } %>
+  </body>
+</html>
