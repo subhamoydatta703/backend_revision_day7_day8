@@ -12,22 +12,27 @@ app.use(express.static(path.join(__dirname, "public")));
 
 let posts = [
   {
+    id:"1a",
     username: "Rahul",
     content: "I love coding!"
   },
   {
+    id:"1b",
     username: "Alice",
     content: "JavaScript makes web development so much fun!"
   },
   {
+    id:"1c",
     username: "Bob",
     content: "Node.js is perfect for building RESTful APIs."
   },
   {
+    id:"1d",
     username: "Charlie",
     content: "I am currently learning Express and EJS templating."
   },
   {
+    id:"1e",
     username: "Subhamoy",
     content: "Consistency is the key to mastering programming."
   }
@@ -45,9 +50,23 @@ app.get("/posts",(req, res)=>{
 })
 
 
+app.get("/posts/:id", (req, res)=>{
+    let { id }=req.params;
+    let post = posts.find(p => id === p.id)
+    console.log(post);
+    console.log("P id: ", post.id);
+    console.log("P username: ", post.username);
+    console.log("P content: ", post.content);
+
+    res.render("show.ejs",{ post});
+})
+
+
 app.get("/posts/new", (req, res)=>{
     res.render("new.ejs")
 })
+
+
 app.post("/posts", (req, res)=>{
    let { username, content } = req.body;
    posts.push({username, content})

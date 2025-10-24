@@ -7,14 +7,18 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>ASK...</h1>
-    <% for(post of posts){ %>
-
-    <div>
-      <h3>@<%= post.username %></h3>
-      <h4>Post: <%= post.content %></h4>
-    </div>
-    <% } %>
-    <div><a href="http://localhost:8080/posts/new">Create a new post</a></div>
+   <h1>All Posts</h1>
+<div class="posts-list">
+  <% posts.forEach(post => { %>
+    <a href="/posts/<%= post.id %>" class="post-link">
+      <div class="post-item">
+        <h2><%= post.username %></h2>
+        <a href="/posts/<%= post.id%>">See in detail</a>
+        <h3><%= post.content %></h3>
+      </div>
+    </a>
+  <% }) %>
+</div>
+<a href="/posts/new" class="back-btn">+ Create New Post</a>
   </body>
 </html>
