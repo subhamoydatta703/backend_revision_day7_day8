@@ -4,22 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>POSTS</title>
-    <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <h1>ASK...</h1>
     <% for(post of posts){ %>
 
     <div>
-        <h3>
-            @<%= post.username %>
-        </h3>
-        <h4>
-            Post: <%= post.content %>
-        </h4>
+      <h3>@<%= post.username %></h3>
+      <h4>Post: <%= post.content %></h4>
     </div>
-
     <% } %>
+    <div><a href="http://localhost:8080/posts/new">Create a new post</a></div>
   </body>
 </html>
