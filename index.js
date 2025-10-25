@@ -67,6 +67,19 @@ app.post("/posts", (req, res) => {
    res.redirect(`/posts/${id}`);
 });
 
+app.patch("/posts/:id",(req, res)=>{
+// patch is used to update a specific post
+
+  let {id}=req.params;
+  let newContent = req.body.content;
+  console.log(`ID: ${id} and new content: ${newContent}`);
+  let post = posts.find((p) => id === p.id);
+  // p is a temporary variable and here it checking the id of a post
+  post.content = newContent;
+  res.send("path working")
+  
+})
+
 port = 8080;
 
 app.listen(port, () => {
