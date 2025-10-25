@@ -15,6 +15,8 @@
       <h3><%= post.content %></h3>
       <!-- Separate link outside outer <a> -->
       <a href="/posts/<%= post.id %>" class="see-detail">See in detail →</a>
+      <br>
+      <a href="/posts/<%= post.id %>/edit" class="see-detail">Edit</a>
     </div>
   <% }) %>
 </div>
