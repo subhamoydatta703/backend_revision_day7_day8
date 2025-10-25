@@ -86,7 +86,21 @@ app.patch("/posts/:id", (req, res) => {
   // p is a temporary variable representing each post in the array.
   // The find() method returns the post whose id matches the given id.
   post.content = newContent;
-  res.redirect("/posts")
+  res.redirect("/posts");
+});
+
+app.delete("/posts/:id", (req, res) => {
+  let { id } = req.params;
+  posts = posts.filter((p) => id !== p.id);
+  // this collects the non selected ids and place them inside posts array
+  // eg., there were ids of a, b, c, d. Now we click delete of id a post then posts of id b, c, d(non selected ids) are going to store inside posts array and only shows the non selected id's post(in another way we can say we delete the selected id's post)
+
+  // This keeps only the posts with IDs that are NOT equal to the deleted one.
+  // Example: if there were posts with IDs a, b, c, d and we delete 'a',
+  // then posts b, c, and d remain in the array.
+  // In other words, the selected (deleted) post is removed.
+
+  res.redirect("/posts");
 });
 
 port = 8080;
