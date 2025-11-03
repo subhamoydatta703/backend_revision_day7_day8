@@ -92,7 +92,7 @@ app.patch("/posts/:id", (req, res) => {
 app.delete("/posts/:id", (req, res) => {
   let { id } = req.params;
   posts = posts.filter((p) => id !== p.id);
-  // this collects the non selected ids and place them inside posts array
+  // this collects the non selected ids and place them inside posts array.
   // eg., there were ids of a, b, c, d. Now we click delete of id a post then posts of id b, c, d(non selected ids) are going to store inside posts array and only shows the non selected id's post(in another way we can say we delete the selected id's post)
 
   // This keeps only the posts with IDs that are NOT equal to the deleted one.
