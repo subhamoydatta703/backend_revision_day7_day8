@@ -40,6 +40,8 @@ let posts = [
   },
 ];
 
+
+// GET -> view route -> get data for all posts
 app.get("/", (req, res) => {
   // res.send("Working well");
   res.redirect("/posts");
@@ -62,6 +64,7 @@ app.get("/posts/:id", (req, res) => {
   res.render("show.ejs", { post });
 });
 
+// post -> create route -> to create a new post
 app.post("/posts", (req, res) => {
   let { username, content } = req.body;
   let id = uuidv4();
@@ -90,6 +93,7 @@ app.patch("/posts/:id", (req, res) => {
 });
 
 app.delete("/posts/:id", (req, res) => {
+  // delete -> delete a specific post
   let { id } = req.params;
   posts = posts.filter((p) => id !== p.id);
   // this collects the non selected ids and place them inside posts array.
